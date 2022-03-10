@@ -1,1 +1,10 @@
 GET http://localhost:3000/find-actor?id=7
+
+###
+GET http://localhost:3000/find-movie?id=4
+
+###
+GET http://localhost:3000/movies/all
+
+###
+GET http://localhost:3000/movie-by-year?year=1988
