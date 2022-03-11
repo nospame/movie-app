@@ -9,8 +9,15 @@ class MoviesController < ApplicationController
   end
 
   def by_year
-    lookup_year = params[:year].to_i
-    movies = Movie.where(year: lookup_year)
+    comparator = params[:compare]
+
+    if comparator == "before"
+      movies = Movie.where("year < :lookup_year", {lookup_year: params[:year].to_i})
+    elsif comparator == "after"
+      movies = Movie.where("year > :lookup_year", {lookup_year: params[:year].to_i})
+    else
+      movies = Movie.where(year: params[:year].to_i)
+    end
     render json: movies.as_json
   end
 end
