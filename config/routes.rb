@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get "/find-actor" => "actors#lookup"
-  get "/find-movie" => "movies#lookup"
-  get "/movies/all" => "movies#show_all"
+  get "/actors/:id" => "actors#show"
+  get "/movies/:id" => "movies#show"
+  get "/movies" => "movies#index"
   get "/movie-by-year" => "movies#by_year"
 end

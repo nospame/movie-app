@@ -1,5 +1,5 @@
 class ActorsController < ApplicationController
-  def lookup
+  def show
     actor_pick = Actor.find(params[:id])
     render json: actor_pick.as_json
   end

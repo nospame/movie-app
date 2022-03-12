@@ -1,10 +1,10 @@
 class MoviesController < ApplicationController
-  def lookup
+  def show
     movie_pick = Movie.find(params[:id])
     render json: movie_pick.as_json
   end
 
-  def show_all
+  def index
     render json: Movie.all.as_json
   end
 
