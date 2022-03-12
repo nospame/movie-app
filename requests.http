@@ -11,3 +11,14 @@ GET http://localhost:3000/movie-by-year?compare=before&year=2022
 
 ###
 GET http://localhost:3000/movie-by-year?year=1988
+
+###
+GET http://localhost:3000/actors?id=7
+
+###
+POST http://localhost:3000/actors/
+content-type: application/json
+
+{
+  "id": "7"
+}
