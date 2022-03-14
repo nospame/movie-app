@@ -1,24 +1,55 @@
-GET http://localhost:3000/actors/7
+### INDEX
+GET http://localhost:3000/actors
 
 ###
-GET http://localhost:3000/movies/4
+GET http://localhost:3000/movies/
 
-###
-GET http://localhost:3000/movies
-
-###
-GET http://localhost:3000/movie-by-year?compare=before&year=2022
-
-###
-GET http://localhost:3000/movie-by-year?year=1988
-
-###
-GET http://localhost:3000/actors?id=7
-
-###
-POST http://localhost:3000/actors/
+### CREATE
+POST http://localhost:3000/actors
 content-type: application/json
 
 {
-  "id": "7"
+  "first_name": "Johnny",
+  "last_name": "Depp",
+  "known_for": "Nightmare on Elm Street"
 }
+
+###
+POST http://localhost:3000/movies/
+content-type: application/json
+
+{
+  "title": "Spirited Away",
+  "year": 2001
+}
+
+### READ
+GET http://localhost:3000/actors/9
+
+###
+GET http://localhost:3000/movies/7
+
+### UPDATE
+PATCH http://localhost:3000/actors/8
+content-type: application/json
+
+{
+  "first_name": "Wesley",
+  "last_name": "Snipes",
+  "known_for": "Blade Trilogy"
+}
+
+###
+PATCH http://localhost:3000/movies/8
+content-type: application/json
+
+{
+  "plot": "10-year-old Chihiro (Rumi Hiiragi) and her parents (Takashi Naitô, Yasuko Sawaguchi) stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku (Miyu Irino), who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.",
+  "year": 2002
+}
+
+###
+DELETE http://localhost:3000/actors/9
+
+###
+DELETE http://localhost:3000/movies/8

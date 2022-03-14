@@ -1,23 +1,37 @@
 class MoviesController < ApplicationController
-  def show
-    movie_pick = Movie.find(params[:id])
-    render json: movie_pick.as_json
-  end
-
   def index
-    render json: Movie.all.as_json
-  end
-
-  def by_year
-    comparator = params[:compare]
-
-    if comparator == "before"
-      movies = Movie.where("year < :lookup_year", {lookup_year: params[:year].to_i})
-    elsif comparator == "after"
-      movies = Movie.where("year > :lookup_year", {lookup_year: params[:year].to_i})
-    else
-      movies = Movie.where(year: params[:year].to_i)
-    end
+    movies = Movie.all
     render json: movies.as_json
   end
+  
+  def create
+    movie = Movie.new(
+      title: params[:title],
+      plot: params[:plot],
+      year: params[:year]
+    )
+    movie.save
+    render json: movie.as_json
+  end
+
+  def show
+    movie = Movie.find_by(id: params[:id])
+    render json: movie.as_json
+  end
+
+  def update
+    movie = Movie.find_by(id: params[:id])
+    movie.title = params[:title] || movie.title
+    movie.plot = params[:plot] || movie.plot
+    movie.year = params[:year] || movie.year
+    movie.save
+    render json: movie.as_json
+  end
+
+  def destroy
+    movie = Movie.find_by(id: params[:id])
+    movie.destroy
+    render json: {message: "Movie deleted."}
+  end
+
 end
