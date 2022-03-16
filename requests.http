@@ -1,36 +1,39 @@
 ### INDEX
-GET http://localhost:3000/actors
+GET http://localhost:3000/actors.json
 
 ###
-GET http://localhost:3000/movies/
+GET http://localhost:3000/movies.json
 
 ### CREATE
-POST http://localhost:3000/actors
+POST http://localhost:3000/actors.json
 content-type: application/json
 
 {
   "first_name": "Johnny",
   "last_name": "Depp",
-  "known_for": "Nightmare on Elm Street"
+  "known_for": "Nightmare on Elm Street",
+  "gender": "presumably male",
+  "age": 54
 }
 
 ###
-POST http://localhost:3000/movies/
+POST http://localhost:3000/movies.json
 content-type: application/json
 
 {
   "title": "Spirited Away",
-  "year": 2001
+  "year": 2001,
+  "director": "Hayao Miyazaki"
 }
 
 ### READ
-GET http://localhost:3000/actors/9
+GET http://localhost:3000/actors/13.json
 
 ###
-GET http://localhost:3000/movies/7
+GET http://localhost:3000/movies/7.json
 
 ### UPDATE
-PATCH http://localhost:3000/actors/8
+PATCH http://localhost:3000/actors/8.json
 content-type: application/json
 
 {
@@ -40,7 +43,7 @@ content-type: application/json
 }
 
 ###
-PATCH http://localhost:3000/movies/8
+PATCH http://localhost:3000/movies/9.json
 content-type: application/json
 
 {
@@ -52,4 +55,4 @@ content-type: application/json
 DELETE http://localhost:3000/actors/9
 
 ###
-DELETE http://localhost:3000/movies/8
+DELETE http://localhost:3000/movies/15

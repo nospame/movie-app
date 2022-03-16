@@ -1,31 +1,35 @@
 class MoviesController < ApplicationController
   def index
-    movies = Movie.all
-    render json: movies.as_json
+    @movies = Movie.all
+    render template: "movies/index"
   end
   
   def create
-    movie = Movie.new(
+    @movie = Movie.new(
       title: params[:title],
       plot: params[:plot],
-      year: params[:year]
+      year: params[:year],
+      director: params[:director],
+      english: params[:english] || true
     )
-    movie.save
-    render json: movie.as_json
+    @movie.save
+    render template: "movies/show"
   end
 
   def show
-    movie = Movie.find_by(id: params[:id])
-    render json: movie.as_json
+    @movie = Movie.find_by(id: params[:id])
+    render template: "movies/show"
   end
 
   def update
-    movie = Movie.find_by(id: params[:id])
-    movie.title = params[:title] || movie.title
-    movie.plot = params[:plot] || movie.plot
-    movie.year = params[:year] || movie.year
-    movie.save
-    render json: movie.as_json
+    @movie = Movie.find_by(id: params[:id])
+    @movie.title = params[:title] || @movie.title
+    @movie.plot = params[:plot] || @movie.plot
+    @movie.year = params[:year] || @movie.year
+    @movie.director = params[:director] || @movie.director
+    @movie.english = params[:english] || @movie.english
+    @movie.save
+    render template: "movies/show"
   end
 
   def destroy
