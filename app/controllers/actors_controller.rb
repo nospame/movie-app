@@ -12,8 +12,11 @@ class ActorsController < ApplicationController
       age: params[:age],
       gender: params[:gender]
     )
-    @actor.save
-    render template: "actors/show"
+    if @actor.save
+      render template: "actors/show"
+    else
+      render json: {errors: @actor.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -28,8 +31,11 @@ class ActorsController < ApplicationController
     @actor.known_for = params[:known_for] || @actor.known_for
     @actor.age = params[:age] || @actor.age
     gender = params[:gender] || @actor.gender
-    @actor.save
-    render template: "actors/show"
+    if @actor.save
+      render template: "actors/show"
+    else
+      render json: {errors: @actor.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy

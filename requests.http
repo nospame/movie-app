@@ -11,7 +11,7 @@ content-type: application/json
 {
   "first_name": "Johnny",
   "last_name": "Depp",
-  "known_for": "Nightmare on Elm Street",
+  # "known_for": "Nightmare on Elm Street",
   "gender": "presumably male",
   "age": 54
 }
@@ -22,8 +22,9 @@ content-type: application/json
 
 {
   "title": "Spirited Away",
-  "year": 2001,
-  "director": "Hayao Miyazaki"
+  "year": 1841,
+  "director": "Hayao Miyazaki",
+  "plot": "some things happen and then other things happen"
 }
 
 ### READ
@@ -39,7 +40,8 @@ content-type: application/json
 {
   "first_name": "Wesley",
   "last_name": "Snipes",
-  "known_for": "Blade Trilogy"
+  "known_for": "Blade Trilogy",
+  "age": 61
 }
 
 ###
