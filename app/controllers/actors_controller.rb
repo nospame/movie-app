@@ -30,7 +30,7 @@ class ActorsController < ApplicationController
     @actor.last_name = params[:last_name] || @actor.last_name
     @actor.known_for = params[:known_for] || @actor.known_for
     @actor.age = params[:age] || @actor.age
-    gender = params[:gender] || @actor.gender
+    @actor.gender = params[:gender] || @actor.gender
     if @actor.save
       render template: "actors/show"
     else
