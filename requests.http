@@ -11,18 +11,19 @@ content-type: application/json
 {
   "first_name": "Johnny",
   "last_name": "Depp",
-  # "known_for": "Nightmare on Elm Street",
+  "known_for": "Nightmare on Elm Street",
   "gender": "presumably male",
   "age": 54
 }
 
 ###
 POST http://localhost:3000/movies.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgyNDk2MjZ9.9BKNYumcm6O8v34bVWp1ATladK33iHDkLiwBTdkTENE
 content-type: application/json
 
 {
   "title": "Spirited Away",
-  "year": 1841,
+  "year": 1871,
   "director": "Hayao Miyazaki",
   "plot": "some things happen and then other things happen"
 }
@@ -58,3 +59,23 @@ DELETE http://localhost:3000/actors/15
 
 ###
 DELETE http://localhost:3000/movies/15
+
+### Users Create
+POST http://localhost:3000/users
+content-type: application/json
+
+{
+  "name": "bradford",
+  "email": "bradford@email.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions Create
+POST http://localhost:3000/sessions
+content-type: application/json
+
+{
+  "email": "evan@email.com",
+  "password": "password"
+}
